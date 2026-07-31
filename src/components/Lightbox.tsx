@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 type LightboxProps = {
   images: string[]
@@ -9,9 +10,10 @@ type LightboxProps = {
 export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
   const [index, setIndex] = useState(initialIndex)
   const total = images.length
+  const drag = useRef<{ x: number; y: number } | null>(null)
 
-  const go = (next: number) => {
-    setIndex((next + total) % total)
+  const go = (delta: number) => {
+    setIndex((prev) => (prev + delta + total) % total)
   }
 
   useEffect(() => {
@@ -36,9 +38,24 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  const onTouchStart = (event: React.TouchEvent) => {
+    const touch = event.touches[0]
+    drag.current = { x: touch.clientX, y: touch.clientY }
+  }
+
+  const onTouchEnd = (event: React.TouchEvent) => {
+    const start = drag.current
+    drag.current = null
+    if (!start) return
+    const touch = event.changedTouches[0]
+    const dx = touch.clientX - start.x
+    const dy = touch.clientY - start.y
+    if (dy > 80 && Math.abs(dy) > Math.abs(dx)) onClose()
+  }
+
   const name = images[index].split('/').pop() ?? ''
 
-  return (
+  return createPortal(
     <div
       className="fixed inset-0 z-[60] flex flex-col bg-ink/95 backdrop-blur-sm"
       role="dialog"
@@ -64,8 +81,10 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
       </div>
 
       <div
-        className="relative flex flex-1 items-center justify-center px-5 pb-8"
+        className="relative flex flex-1 items-center justify-center px-5 pb-8 touch-pan-y"
         onClick={(e) => e.stopPropagation()}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
         <button
           onClick={() => go(-1)}
@@ -88,6 +107,14 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
         >
           →
         </button>
+
+        <button
+          onClick={onClose}
+          className="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-bone/30 font-mono text-sm text-bone transition-colors hover:bg-bone hover:text-ink md:hidden"
+          aria-label="Close viewer"
+        >
+          ✕
+        </button>
       </div>
 
       <div
@@ -105,6 +132,7 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
           />
         ))}
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
