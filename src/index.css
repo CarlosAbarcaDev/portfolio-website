@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #edeae1;
+  --color-panel: #f7f5ef;
+  --color-ink: #17312c;
+  --color-body: #2e3b37;
+  --color-muted: #66746f;
+  --color-line: #d8d5cb;
+  --color-line-strong: #b9b4a6;
+  --color-signal: #f2a93b;
+  --color-ok: #2e8b6e;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bone font-body text-body antialiased;
+  }
+
+  ::selection {
+    background: var(--color-signal);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-mono text-[11px] font-semibold uppercase tracking-[0.22em] text-muted;
+  }
+
+  .panel {
+    @apply border border-line bg-panel;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-bone px-3 py-1 font-mono text-[11px] font-medium text-ink;
+  }
+
+  .signal-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: var(--color-ok);
+    box-shadow: 0 0 0 0 var(--color-ok);
+    animation: pulse 2.4s infinite;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--color-line);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(46 139 110 / 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgb(46 139 110 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(46 139 110 / 0);
+  }
+}
+
+.marquee-track {
+  animation: marquee 32s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
