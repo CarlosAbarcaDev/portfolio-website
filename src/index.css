@@ -21,6 +21,12 @@
     @apply bg-bone font-body text-body antialiased;
   }
 
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
   ::selection {
     background: var(--color-signal);
     color: var(--color-ink);
@@ -30,6 +36,26 @@
     outline: 2px solid var(--color-ink);
     outline-offset: 3px;
   }
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  pointer-events: none;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(52rem 32rem at 85% 0%, rgb(242 169 59 / 0.1), transparent 62%),
+    radial-gradient(40rem 26rem at 8% 110%, rgb(46 139 110 / 0.08), transparent 60%);
 }
 
 @layer components {
@@ -83,5 +109,12 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .signal-dot {
+    animation: none;
   }
 }

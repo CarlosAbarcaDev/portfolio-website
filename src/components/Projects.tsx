@@ -11,14 +11,19 @@ function Gallery({ images, label }: { images: string[]; label: string }) {
     <div className="mt-8">
       <button
         onClick={() => setLightboxIndex(main)}
-        className="group block w-full overflow-hidden rounded-lg border border-line bg-panel text-left"
+        className="group block w-full overflow-hidden rounded-lg border border-line bg-panel text-left transition-all hover:-translate-y-1 hover:shadow-[0_20px_45px_-25px_rgba(23,49,44,0.45)] active:scale-[0.99]"
         aria-label={`Open ${label} screenshot viewer`}
       >
-        <img
-          src={images[main]}
-          alt={`${label} — screenshot ${main + 1}`}
-          className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-        />
+        <div className="relative">
+          <img
+            src={images[main]}
+            alt={`${label} — screenshot ${main + 1}`}
+            className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+          <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-ink/80 px-3 py-1 font-mono text-[11px] text-bone opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+            view full ↗
+          </span>
+        </div>
       </button>
 
       <div className="mt-3 flex items-stretch gap-2 overflow-x-auto pb-2">

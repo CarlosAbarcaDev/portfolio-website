@@ -25,6 +25,11 @@ export function Reveal({
     const el = ref.current
     if (!el) return
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.style.opacity = '1'
+      return
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,

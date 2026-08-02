@@ -20,6 +20,12 @@ function EventLog() {
     let charIndex = 0
     let timer = 0
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setShown([...eventLog])
+      setCurrent('')
+      return
+    }
+
     const step = () => {
       if (lineIndex >= eventLog.length) {
         timer = window.setTimeout(() => {
@@ -73,6 +79,8 @@ export function Hero() {
     const el = cardRef.current
     if (!el) return
 
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
@@ -98,6 +106,7 @@ export function Hero() {
       id="top"
       className="relative overflow-hidden pt-28 md:pt-32"
     >
+      <div className="hero-glow" aria-hidden="true" />
       <div className="mx-auto max-w-6xl px-5">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div>
@@ -107,11 +116,12 @@ export function Hero() {
             </Reveal>
 
             <Reveal as="h1" delay={0.05}>
-              <span className="block font-display text-5xl font-bold leading-[0.98] tracking-tight text-ink sm:text-6xl md:text-7xl">
+              <span className="block font-display text-5xl font-bold leading-[0.98] tracking-tight text-ink sm:text-6xl md:text-8xl">
                 Front-End craft.
               </span>
-              <span className="block font-display text-5xl font-bold leading-[0.98] tracking-tight text-ink sm:text-6xl md:text-7xl">
-                Full-Stack reach.
+              <span className="block font-display text-5xl font-bold leading-[0.98] tracking-tight text-ink sm:text-6xl md:text-8xl">
+                Full-Stack{' '}
+                <span className="text-signal">reach.</span>
               </span>
             </Reveal>
 
@@ -127,17 +137,27 @@ export function Hero() {
             <Reveal delay={0.18} className="mt-9 flex flex-wrap items-center gap-3">
               <a
                 href="#projects"
-                className="rounded-full bg-ink px-6 py-3 font-mono text-sm font-medium text-bone transition-transform hover:-translate-y-0.5"
+                className="rounded-full bg-ink px-6 py-3 font-mono text-sm font-medium text-bone transition-all hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 See the work
               </a>
               <a
+                href="/Carlos_Abarca_CV.pdf"
+                download="Carlos_Abarca_CV.pdf"
+                className="rounded-full border border-ink px-6 py-3 font-mono text-sm font-medium text-ink transition-all hover:-translate-y-0.5 hover:bg-ink hover:text-bone active:scale-[0.98]"
+              >
+                Download CV ↓
+              </a>
+              <a
                 href="#contact"
-                className="rounded-full border border-ink px-6 py-3 font-mono text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-bone"
+                className="group flex items-center gap-1 font-mono text-sm text-ink underline decoration-signal decoration-2 underline-offset-4 transition-colors hover:text-muted"
               >
                 Get in touch
+                <span className="text-signal transition-transform group-hover:translate-x-0.5">
+                  ↗
+                </span>
               </a>
-              <span className="ml-1 hidden font-mono text-xs text-muted md:inline">
+              <span className="ml-1 hidden w-full font-mono text-xs text-muted md:inline md:w-auto">
                 {profile.location}
               </span>
             </Reveal>

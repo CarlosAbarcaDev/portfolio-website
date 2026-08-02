@@ -13,8 +13,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-bone">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-bone"
+      >
+        Skip to content
+      </a>
       <Nav />
-      <main>
+      <main id="main">
         <Hero />
         <About />
         <Experience />
@@ -23,6 +29,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <div className="grain-overlay" aria-hidden="true" />
     </div>
   )
 }

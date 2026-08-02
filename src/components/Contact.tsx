@@ -2,12 +2,7 @@ import { profile } from '../data/site'
 import { Reveal } from './Reveal'
 
 export function Contact() {
-  const links = [
-    {
-      label: 'email',
-      value: profile.email,
-      href: `mailto:${profile.email}`,
-    },
+  const channels = [
     {
       label: 'linkedin',
       value: profile.linkedinLabel,
@@ -39,9 +34,36 @@ export function Contact() {
           Have a role or a project in mind? Let’s talk.
         </Reveal>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-2">
-          {links.map((link, i) => (
-            <Reveal key={link.label} y={16} delay={i * 0.04}>
+        <Reveal
+          as="p"
+          delay={0.1}
+          className="mt-5 flex flex-wrap items-center gap-3 font-mono text-sm text-ink"
+        >
+          <span className="signal-dot" />
+          <span>Available for remote roles &amp; relocation</span>
+          <span className="text-muted">/ {profile.location}</span>
+        </Reveal>
+
+        <Reveal delay={0.12} className="mt-12">
+          <a
+            href={`mailto:${profile.email}`}
+            className="group flex flex-col gap-2 rounded-xl border border-ink bg-ink px-6 py-8 transition-colors hover:bg-[#0e241f] md:flex-row md:items-baseline md:justify-between"
+          >
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-bone/60">
+              email — best way to reach me
+            </span>
+            <span className="flex items-center gap-3 font-mono text-lg text-bone md:text-xl">
+              {profile.email}
+              <span className="inline-block text-signal transition-transform group-hover:translate-x-1">
+                ↗
+              </span>
+            </span>
+          </a>
+        </Reveal>
+
+        <div className="mt-4 grid gap-px overflow-hidden rounded-xl border border-line bg-line md:grid-cols-3">
+          {channels.map((link, i) => (
+            <Reveal key={link.label} y={16} delay={0.14 + i * 0.05}>
               <a
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
@@ -64,10 +86,10 @@ export function Contact() {
 
         <Reveal
           as="p"
-          delay={0.15}
+          delay={0.2}
           className="mt-8 font-mono text-sm text-muted"
         >
-          {profile.location}
+          GMT-6 · Spanish (native) &amp; English
         </Reveal>
       </div>
     </section>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Carlos Abarca - Senior Front-End & Full Stack Developer">
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F2A93B" stop-opacity="0.16"/>
+      <stop offset="0.55" stop-color="#F2A93B" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.05"/></feComponentTransfer>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#EDEAE1"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace" fill="#66746F">
+    <text x="64" y="58" font-size="18" letter-spacing="4">carlos_abarca / full-stack portfolio</text>
+    <circle cx="1200-80" cy="46" r="6" fill="#2E8B6E"/>
+    <text x="1112" y="52" font-size="16" letter-spacing="2">OPEN TO WORK</text>
+  </g>
+
+  <g font-family="'Space Grotesk', 'Helvetica Neue', Arial, sans-serif" fill="#17312C">
+    <text x="60" y="300" font-size="104" font-weight="700">Front-End craft.</text>
+    <text x="60" y="420" font-size="104" font-weight="700">Full-Stack <tspan fill="#F2A93B">reach.</tspan></text>
+  </g>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+    <text x="64" y="492" font-size="22" fill="#2E3B37">7 yrs programming</text>
+    <text x="300" y="492" font-size="22" fill="#2E3B37">· 4 yrs full-stack</text>
+    <text x="560" y="492" font-size="22" fill="#2E3B37">· 12+ modules shipped</text>
+  </g>
+
+  <g font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace" font-size="18" fill="#66746F">
+    <text x="64" y="556">email: carlos.abarca00@gmail.com</text>
+    <text x="64" y="586">github: github.com/CarlosAbarcaDev</text>
+  </g>
+
+  <g opacity="0.4">
+    <rect x="0" y="0" width="1200" height="630" filter="url(#grain)"/>
+  </g>
+</svg>
