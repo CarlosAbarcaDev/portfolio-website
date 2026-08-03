@@ -111,10 +111,3 @@
     transform: translateX(-50%);
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track,
-  .signal-dot {
-    animation: none;
-  }
-}

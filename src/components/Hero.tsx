@@ -20,12 +20,6 @@ function EventLog() {
     let charIndex = 0
     let timer = 0
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setShown([...eventLog])
-      setCurrent('')
-      return
-    }
-
     const step = () => {
       if (lineIndex >= eventLog.length) {
         timer = window.setTimeout(() => {
@@ -78,8 +72,6 @@ export function Hero() {
   useEffect(() => {
     const el = cardRef.current
     if (!el) return
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
