@@ -4,7 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { experience } from '../data/site'
 import { Reveal } from './Reveal'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 function ScrubRow({
   children,
@@ -51,7 +53,7 @@ function ScrubRow({
 
 export function Experience() {
   return (
-    <section id="experience" className="scroll-mt-24 border-y border-line bg-panel py-20 md:py-28">
+    <section id="experience" className="scroll-mt-24 border-y border-line bg-surface/40 py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-5">
         <div className="flex items-end justify-between gap-6">
           <div>
@@ -61,7 +63,7 @@ export function Experience() {
             <Reveal
               as="h2"
               delay={0.05}
-              className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+              className="mt-3 font-display text-3xl font-bold tracking-tight text-cream sm:text-4xl"
             >
               Release history
             </Reveal>
@@ -82,7 +84,7 @@ export function Experience() {
 
                 <div>
                   <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h3 className="font-display text-2xl font-bold tracking-tight text-ink">
+                    <h3 className="font-display text-2xl font-bold tracking-tight text-cream">
                       {job.company}
                     </h3>
                     <span className="font-mono text-sm text-muted">
@@ -93,7 +95,7 @@ export function Experience() {
                     {job.points.map((point) => (
                       <li
                         key={point}
-                        className="flex gap-3 text-[15px] leading-relaxed text-body"
+                        className="flex gap-3 text-[15px] leading-relaxed text-soft"
                       >
                         <span className="mt-0.5 shrink-0 font-mono text-xs text-signal">
                           ▸

@@ -57,7 +57,7 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[60] flex flex-col bg-ink/95 backdrop-blur-sm"
+      className="fixed inset-0 z-[60] flex flex-col bg-deep/95 backdrop-blur-md"
       role="dialog"
       aria-modal="true"
       aria-label="Screenshot viewer"
@@ -67,13 +67,13 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
         className="flex items-center justify-between px-5 py-3"
         onClick={(e) => e.stopPropagation()}
       >
-        <span className="font-mono text-xs text-bone/70">
+        <span className="font-mono text-xs text-cream/70">
           {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')} ·{' '}
           {name}
         </span>
         <button
           onClick={onClose}
-          className="rounded-full border border-bone/30 px-4 py-1.5 font-mono text-xs text-bone transition-colors hover:bg-bone hover:text-ink"
+          className="rounded-full border border-cream/30 px-4 py-1.5 font-mono text-xs text-cream transition-colors hover:bg-cream hover:text-base"
           aria-label="Close viewer"
         >
           Esc / Close
@@ -88,7 +88,7 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
       >
         <button
           onClick={() => go(-1)}
-          className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-bone/30 px-4 py-2 font-mono text-lg text-bone transition-colors hover:bg-bone hover:text-ink md:left-8"
+          className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-cream/30 px-4 py-2 font-mono text-lg text-cream transition-colors hover:bg-cream hover:text-base md:left-8"
           aria-label="Previous screenshot"
         >
           ←
@@ -97,12 +97,12 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
         <img
           src={images[index]}
           alt={`Screenshot ${index + 1}: ${name}`}
-          className="max-h-[78vh] max-w-[calc(100%-6rem)] rounded-lg border border-bone/20 object-contain shadow-2xl"
+          className="max-h-[78vh] max-w-[calc(100%-6rem)] rounded-lg border border-cream/20 object-contain shadow-2xl"
         />
 
         <button
           onClick={() => go(1)}
-          className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-bone/30 px-4 py-2 font-mono text-lg text-bone transition-colors hover:bg-bone hover:text-ink md:right-8"
+          className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-cream/30 px-4 py-2 font-mono text-lg text-cream transition-colors hover:bg-cream hover:text-base md:right-8"
           aria-label="Next screenshot"
         >
           →
@@ -110,7 +110,7 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
 
         <button
           onClick={onClose}
-          className="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-bone/30 font-mono text-sm text-bone transition-colors hover:bg-bone hover:text-ink md:hidden"
+          className="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full border border-cream/30 font-mono text-sm text-cream transition-colors hover:bg-cream hover:text-base md:hidden"
           aria-label="Close viewer"
         >
           ✕
@@ -127,7 +127,7 @@ export function Lightbox({ images, initialIndex, onClose }: LightboxProps) {
             onClick={() => setIndex(i)}
             aria-label={`Go to screenshot ${i + 1}`}
             className={`h-1.5 rounded-full transition-all ${
-              i === index ? 'w-6 bg-signal' : 'w-1.5 bg-bone/30 hover:bg-bone/60'
+              i === index ? 'w-6 bg-signal' : 'w-1.5 bg-cream/30 hover:bg-cream/60'
             }`}
           />
         ))}

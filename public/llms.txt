@@ -1,0 +1,49 @@
+# Carlos Abarca — Senior Front-End & Full Stack Developer
+
+> Portfolio of Carlos Abarca, a senior front-end and full-stack developer based in El Salvador (GMT-6). 7 years of programming experience, 4 of them as a full-stack engineer, building dashboards, admin panels, booking systems and real-time apps. Open to remote roles and relocation.
+
+## Summary
+
+- Name: Carlos Abarca (also known as Carlos Abarca Dev)
+- Role: Senior Front-End & Full Stack Developer
+- Experience: 7 years programming; 4 years as a full-stack engineer; 12+ business modules shipped (tours, providers, operators)
+- Location: El Salvador (GMT-6) — open to remote work and relocation
+- Languages: Spanish (native), English (intermediate/advanced)
+- Availability: open to new senior front-end / full-stack opportunities
+
+## Tech Stack
+
+- Front-End: React, Next.js, Vue.js
+- Languages: TypeScript, JavaScript ES6+, PHP
+- Styling: Tailwind CSS, Bootstrap, CSS3
+- State: Redux, Context API
+- Back-End: Node.js, Express, PHP, Laravel (currently leveling up Node.js + Express + TypeScript + MongoDB)
+- APIs & Real-time: RESTful APIs, WebSockets
+- Tools: Git, GitHub, npm/yarn
+
+## Work Experience
+
+- Paradise Solutions (2022–2026) — Front-End Dev → Full Stack Developer. Architected dashboards and management systems with React + TypeScript, Tailwind CSS and Bootstrap. Self-taught PHP + Laravel and Node.js in 2023 to build RESTful APIs and back-end modules, taking end-to-end ownership of the stack.
+- Creativa Consultores (2020–2022) — Front-End Developer. Built a contract automation app (React + Bootstrap) for a Canadian law firm, with dynamic forms generating instant PDF and Word contracts.
+- Urbano Express (2019–2020) — Front-End Developer. Real-time delivery tracker with Next.js + WebSockets (live driver location, order status) and a restaurant management platform in React.
+- Independent / Freelance (2018–2019) — Front-End Developer. Websites and web apps for independent clients, handled end to end.
+
+## Featured Projects
+
+- Adventure Station · Admin Panel — Full tourism backoffice/CRM: tours catalog, pricing, high season, schedules, addons and web publishing. React 17 + Redux + Bootstrap 5 + Formik/Yup + Axios, wired to a Laravel REST API.
+- Bookings Forms — Embedded React reservation engine for tour websites (Cancun, Cozumel, Mazatlan, Puerto Vallarta, Cabo, Playa del Carmen): date, time, quantities, addons and live price to checkout. React 17 + styled-components + Bootstrap 5.
+- Operator Mobile Tool — Mobile-first field tool for tour operators at the Cozumel site. React + TypeScript + Vite + Tailwind CSS + react-hook-form.
+
+## Education
+
+- Network Technician — ITCA – FEPADE
+- CCNA, CCNP, Security training
+- Self-taught front-end (Udemy, Pluralsight, React ZTM, React Native)
+
+## Contact
+
+- Email: carlos.abarca00@gmail.com
+- Phone: +503 7565-3818
+- LinkedIn: https://www.linkedin.com/in/c-abarca
+- GitHub: https://github.com/CarlosAbarcaDev
+- Website: https://carlosabarca.is-a.dev/

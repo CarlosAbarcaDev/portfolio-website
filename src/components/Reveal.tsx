@@ -2,7 +2,9 @@ import { useLayoutEffect, useRef, type ReactNode, type ElementType } from 'react
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 type RevealProps = {
   children: ReactNode
@@ -24,6 +26,11 @@ export function Reveal({
   useLayoutEffect(() => {
     const el = ref.current
     if (!el) return
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.style.opacity = '1'
+      return
+    }
 
     const ctx = gsap.context(() => {
       gsap.fromTo(

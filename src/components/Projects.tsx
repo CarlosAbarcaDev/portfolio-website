@@ -11,7 +11,7 @@ function Gallery({ images, label }: { images: string[]; label: string }) {
     <div className="mt-8">
       <button
         onClick={() => setLightboxIndex(main)}
-        className="group block w-full overflow-hidden rounded-lg border border-line bg-panel text-left transition-all hover:-translate-y-1 hover:shadow-[0_20px_45px_-25px_rgba(23,49,44,0.45)] active:scale-[0.99]"
+        className="group block w-full overflow-hidden rounded-lg border border-line bg-surface text-left transition-all hover:-translate-y-1 hover:border-line-strong hover:shadow-[0_28px_60px_-28px_rgba(0,0,0,0.8)] active:scale-[0.99]"
         aria-label={`Open ${label} screenshot viewer`}
       >
         <div className="relative">
@@ -20,7 +20,7 @@ function Gallery({ images, label }: { images: string[]; label: string }) {
             alt={`${label} — screenshot ${main + 1}`}
             className="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
           />
-          <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-ink/80 px-3 py-1 font-mono text-[11px] text-bone opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+          <span className="absolute right-3 top-3 flex items-center gap-1.5 rounded-full bg-base/80 px-3 py-1 font-mono text-[11px] text-cream opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
             view full ↗
           </span>
         </div>
@@ -36,8 +36,8 @@ function Gallery({ images, label }: { images: string[]; label: string }) {
             aria-label={`Show screenshot ${i + 2}`}
             className={`shrink-0 overflow-hidden rounded-md border transition-all ${
               main === i + 1
-                ? 'border-ink ring-2 ring-ink/20'
-                : 'border-line opacity-80 hover:opacity-100'
+                ? 'border-signal ring-2 ring-signal/25'
+                : 'border-line opacity-70 hover:opacity-100'
             }`}
           >
             <img src={src} alt="" className="h-14 w-24 object-cover object-top" />
@@ -80,11 +80,11 @@ function ProjectPanel({
         <span className="font-mono text-xs text-muted">{project.role}</span>
       </div>
 
-      <h3 className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+      <h3 className="mt-3 font-display text-3xl font-bold tracking-tight text-cream sm:text-4xl">
         {project.name}
       </h3>
 
-      <p className="mt-3 max-w-2xl text-lg leading-relaxed text-body">
+      <p className="mt-3 max-w-2xl text-lg leading-relaxed text-soft">
         {project.summary}
       </p>
 
@@ -100,8 +100,8 @@ function ProjectPanel({
         <Gallery images={project.images} label={project.name} />
       ) : project.visual ? (
         <div className="mt-8">
-          <div className="overflow-hidden rounded-lg border border-line bg-panel">
-            <div className="flex items-center gap-1.5 border-b border-line bg-panel px-4 py-2.5">
+          <div className="overflow-hidden rounded-lg border border-line bg-surface">
+            <div className="flex items-center gap-1.5 border-b border-line bg-deep/60 px-4 py-2.5">
               <span className="h-2.5 w-2.5 rounded-full bg-[#D95B43]" />
               <span className="h-2.5 w-2.5 rounded-full bg-signal" />
               <span className="h-2.5 w-2.5 rounded-full bg-ok" />
@@ -109,7 +109,7 @@ function ProjectPanel({
                 operatortool.local / cozumel
               </span>
             </div>
-            <div className="grid place-items-center bg-bone px-6 py-12">
+            <div className="grid place-items-center bg-base px-6 py-12">
               <img
                 src={project.visual}
                 alt="Operator Mobile Tool visual"
@@ -123,7 +123,7 @@ function ProjectPanel({
         </div>
       ) : null}
 
-      <div className="mt-6 grid gap-4 text-[15px] leading-relaxed text-body md:grid-cols-2">
+      <div className="mt-6 grid gap-4 text-[15px] leading-relaxed text-soft md:grid-cols-2">
         {project.description.map((paragraph) => (
           <p key={paragraph.slice(0, 32)}>{paragraph}</p>
         ))}
@@ -142,14 +142,14 @@ export function Projects() {
         <Reveal
           as="h2"
           delay={0.05}
-          className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+          className="mt-3 font-display text-3xl font-bold tracking-tight text-cream sm:text-4xl"
         >
           Documented work
         </Reveal>
         <Reveal
           as="p"
           delay={0.1}
-          className="mt-4 max-w-2xl text-lg leading-relaxed text-body"
+          className="mt-4 max-w-2xl text-lg leading-relaxed text-soft"
         >
           Three systems shipped in the field — each with its own documentation
           and the screenshots to prove it.

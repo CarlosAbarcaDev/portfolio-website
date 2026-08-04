@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bone: #edeae1;
-  --color-panel: #f7f5ef;
-  --color-ink: #17312c;
-  --color-body: #2e3b37;
-  --color-muted: #66746f;
-  --color-line: #d8d5cb;
-  --color-line-strong: #b9b4a6;
+  --color-base: #0a100e;
+  --color-deep: #060b09;
+  --color-surface: #101915;
+  --color-overlay: #16221c;
+  --color-cream: #edeae1;
+  --color-soft: #b6c1b8;
+  --color-muted: #7e8b81;
+  --color-line: rgb(237 234 225 / 0.1);
+  --color-line-strong: rgb(237 234 225 / 0.24);
   --color-signal: #f2a93b;
-  --color-ok: #2e8b6e;
+  --color-signal-soft: #f6c469;
+  --color-ok: #43b389;
 
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
@@ -18,7 +21,7 @@
 
 @layer base {
   body {
-    @apply bg-bone font-body text-body antialiased;
+    @apply bg-base font-body text-soft antialiased;
   }
 
   h1,
@@ -29,12 +32,30 @@
 
   ::selection {
     background: var(--color-signal);
-    color: var(--color-ink);
+    color: var(--color-base);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 2px solid var(--color-signal);
     outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-base);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(237 234 225 / 0.12);
+    border-radius: 9999px;
+    border: 2px solid var(--color-base);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(237 234 225 / 0.22);
   }
 }
 
@@ -43,19 +64,20 @@
   inset: 0;
   z-index: 45;
   pointer-events: none;
-  opacity: 0.5;
-  mix-blend-mode: multiply;
+  opacity: 0.35;
+  mix-blend-mode: soft-light;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   background-size: 160px 160px;
 }
 
-.hero-glow {
+.hero-aurora {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(52rem 32rem at 85% 0%, rgb(242 169 59 / 0.1), transparent 62%),
-    radial-gradient(40rem 26rem at 8% 110%, rgb(46 139 110 / 0.08), transparent 60%);
+    radial-gradient(56rem 34rem at 82% -8%, rgb(242 169 59 / 0.14), transparent 62%),
+    radial-gradient(44rem 30rem at 4% 108%, rgb(67 179 137 / 0.1), transparent 60%),
+    radial-gradient(30rem 20rem at 50% 40%, rgb(242 169 59 / 0.04), transparent 65%);
 }
 
 @layer components {
@@ -64,11 +86,11 @@
   }
 
   .panel {
-    @apply border border-line bg-panel;
+    @apply border border-line bg-surface;
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-bone px-3 py-1 font-mono text-[11px] font-medium text-ink;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white/[0.03] px-3 py-1 font-mono text-[11px] font-medium text-cream;
   }
 
   .signal-dot {
@@ -85,22 +107,33 @@
     height: 1px;
     background: var(--color-line);
   }
+
+  .text-gradient-signal {
+    background: linear-gradient(100deg, var(--color-signal-soft), var(--color-signal) 60%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgb(46 139 110 / 0.45);
+    box-shadow: 0 0 0 0 rgb(67 179 137 / 0.45);
   }
   70% {
-    box-shadow: 0 0 0 7px rgb(46 139 110 / 0);
+    box-shadow: 0 0 0 7px rgb(67 179 137 / 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgb(46 139 110 / 0);
+    box-shadow: 0 0 0 0 rgb(67 179 137 / 0);
   }
 }
 
 .marquee-track {
   animation: marquee 32s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 @keyframes marquee {
@@ -109,5 +142,11 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-dot {
+    animation: none;
   }
 }

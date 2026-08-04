@@ -12,10 +12,10 @@ export default function App() {
   useLenis()
 
   return (
-    <div className="min-h-screen bg-bone">
+    <div className="min-h-screen bg-base">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:text-bone"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-md focus:bg-signal focus:px-4 focus:py-2 focus:font-mono focus:text-sm focus:font-semibold focus:text-base"
       >
         Skip to content
       </a>

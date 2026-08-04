@@ -12,7 +12,7 @@ export function Footer() {
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="transition-colors hover:text-ink"
+            className="transition-colors hover:text-cream"
           >
             LinkedIn
           </a>
@@ -20,7 +20,7 @@ export function Footer() {
             href={profile.github}
             target="_blank"
             rel="noreferrer"
-            className="transition-colors hover:text-ink"
+            className="transition-colors hover:text-cream"
           >
             GitHub
           </a>
@@ -31,7 +31,7 @@ export function Footer() {
         </div>
         <a
           href="#top"
-          className="font-mono text-xs text-ink underline decoration-signal decoration-2 underline-offset-4 hover:text-muted"
+          className="font-mono text-xs text-cream underline decoration-signal decoration-2 underline-offset-4 transition-colors hover:text-muted"
         >
           back to top ↑
         </a>

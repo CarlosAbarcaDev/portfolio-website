@@ -16,7 +16,7 @@ function SectionHeading({
       <Reveal
         as="h2"
         delay={0.05}
-        className="mt-3 font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl"
+        className="mt-3 font-display text-3xl font-bold tracking-tight text-cream sm:text-4xl"
       >
         {title}
       </Reveal>
@@ -33,7 +33,7 @@ export function About() {
         <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_0.85fr] lg:gap-16">
           <div>
             <Reveal className="flex items-end gap-4">
-              <p className="font-display text-6xl font-bold leading-none text-ink sm:text-7xl">
+              <p className="font-display text-6xl font-bold leading-none text-cream sm:text-7xl">
                 07<span className="text-signal">.</span>
               </p>
               <p className="pb-1 font-mono text-sm text-muted">
@@ -41,7 +41,7 @@ export function About() {
               </p>
             </Reveal>
             <Reveal className="mt-2 flex items-end gap-4">
-              <p className="font-display text-6xl font-bold leading-none text-ink sm:text-7xl">
+              <p className="font-display text-6xl font-bold leading-none text-cream sm:text-7xl">
                 04<span className="text-signal">.</span>
               </p>
               <p className="pb-1 font-mono text-sm text-muted">
@@ -49,7 +49,7 @@ export function About() {
               </p>
             </Reveal>
 
-            <Reveal className="mt-8 max-w-xl text-lg leading-relaxed text-body">
+            <Reveal className="mt-8 max-w-xl text-lg leading-relaxed text-soft">
               <p>{summary()}</p>
             </Reveal>
 
@@ -59,7 +59,7 @@ export function About() {
                 {strengths.map((s) => (
                   <li
                     key={s}
-                    className="flex items-center gap-2 font-mono text-sm text-ink"
+                    className="flex items-center gap-2 font-mono text-sm text-cream/90"
                   >
                     <span className="text-signal">▹</span>
                     {s}
@@ -78,7 +78,7 @@ export function About() {
                 >
                   <dt className="eyebrow mb-2">{spec.label}</dt>
                   {spec.lines.map((line) => (
-                    <dd key={line} className="text-[15px] leading-snug text-ink">
+                    <dd key={line} className="text-[15px] leading-snug text-cream/90">
                       {line}
                     </dd>
                   ))}
